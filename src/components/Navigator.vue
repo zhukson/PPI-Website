@@ -13,7 +13,7 @@ const goHome = () => {
       <img src="../assets/logo.png" width="350" height="60" />
     </div>
     <div class="options">
-      <div class="item">About</div>
+      <div class="item" @click="router.push({ path: '/about' })">About</div>
       <div class="item">Solutions</div>
       <div class="item">Quality Assurance</div>
       <div class="item">Products</div>
@@ -45,6 +45,11 @@ const goHome = () => {
       font-weight: light;
     }
   }
+}
+
+.item:hover {
+  cursor: pointer;
+  color: rgb(255, 230, 0);
 }
 
 @media (max-width: 768px) {
