@@ -1,5 +1,7 @@
 <script setup>
 import { useRouter } from "vue-router";
+import Dropdown from "primevue/dropdown";
+import { lang } from "../helpers/language";
 
 const router = useRouter();
 const goHome = () => {
@@ -13,11 +15,25 @@ const goHome = () => {
       <img src="../assets/logo.png" width="350" height="60" />
     </div>
     <div class="options">
-      <div class="item" @click="router.push({ path: '/about' })">About</div>
-      <div class="item">Solutions</div>
-      <div class="item">Quality Assurance</div>
-      <div class="item">Products</div>
-      <div class="item">Contact</div>
+      <Dropdown :options="['EN', 'CN']" v-model="lang">
+        <template #option="{ option }">
+          <div v-if="option === 'EN'">English</div>
+          <div v-else-if="option === 'CN'">中文</div>
+        </template>
+        <template #value="{ value }">
+          <div v-if="value === 'EN'">English</div>
+          <div v-else-if="value === 'CN'">中文</div>
+        </template>
+      </Dropdown>
+      <div class="item" @click="router.push({ path: '/about' })">
+        {{ lang === "CN" ? "关于" : "About" }}
+      </div>
+      <div class="item">{{ lang === "CN" ? "解决方案" : "Solutions" }}</div>
+      <div class="item">
+        {{ lang === "CN" ? "质量" : "Quality Assurance" }}
+      </div>
+      <div class="item">{{ lang === "CN" ? "产品" : "Products" }}</div>
+      <div class="item">{{ lang === "CN" ? "联系我们" : "Contacts" }}</div>
     </div>
   </div>
 </template>
@@ -38,7 +54,7 @@ const goHome = () => {
     display: flex;
     justify-content: space-evenly;
     gap: 2.5rem;
-    margin-right: 5rem;
+    margin-right: 2rem;
     align-items: center;
     .item {
       font-size: 1.5rem;

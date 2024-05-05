@@ -1,5 +1,6 @@
 <script setup>
 import Button from "primevue/button";
+import { lang } from "../../helpers/language";
 </script>
 
 <template>
@@ -7,21 +8,30 @@ import Button from "primevue/button";
     <div class="image-container">
       <img src="../../assets/about/bg.png" alt="background" class="bg" />
       <div class="centered-content">
-        <p class="title">About Us</p>
+        <p class="title" v-if="lang === 'EN'">About Us</p>
+        <p class="title" v-else-if="lang === 'CN'">关于我们</p>
       </div>
     </div>
     <div class="image-container2">
       <div class="left-content">
-        <p class="title"><u class="deco">Our</u> Mission</p>
+        <p class="title" v-if="lang === 'EN'">
+          <u class="deco">Our</u> Mission
+        </p>
+        <p class="title" v-else-if="lang === 'CN'">
+          <u class="deco">PPI</u>的使命
+        </p>
       </div>
       <div class="right-content">
-        <p class="title">
+        <p class="title" v-if="lang === 'EN'">
           Committed to becoming a customers' preferred supplier of efficient,
           precise, safe and reliable fastener solutions.
         </p>
+        <p class="title" v-else-if="lang === 'CN'">
+          致力成为客户高效、精密&安全可靠的紧固件解决方案的首选供应商。
+        </p>
       </div>
     </div>
-    <div class="description">
+    <div class="description" v-if="lang === 'EN'">
       <div class="title"><u class="deco">Who</u> We Are</div>
       <div class="detail">
         PPI Engineering was established on April 18, 2016. The company
@@ -45,9 +55,26 @@ import Button from "primevue/button";
         Zhongshan to provide customers with high-quality products and services.
       </div>
     </div>
+    <div class="description" v-else-if="lang === 'CN'">
+      <div class="title"><u class="deco">PPI</u> 简介</div>
+      <div class="detail">
+        PPI Engineering
+        成立于2016年4月18日，公司专业生产M0.6~M24精密及高强度螺丝&螺栓，厂房面积7000平方，目前拥有高精密螺丝生产设备、数控车削设备&加工中心及辅助设备合计200台套，月产能3.5亿件以上。
+      </div>
+      <div class="detail">
+        公司为高精密螺丝、电子螺丝、组合螺丝、家电螺丝，汽车标件、非标件、异形件、高强度高等级紧固件之制造商，产品执行JIS（日标）、GB(国标)、ANSI（美标）、DIN（德标）等各类标准,
+        公司产品广泛用于各类消费电子产品（收机、通讯、LED、LCD）、汽车工业、医疗设备、电子设备、仪器仪表、工控设备、家电等。目前公司分别在无锡、昆山、中山有生产基地为客户提供优质产品和服务。
+      </div>
+    </div>
 
-    <div class="description">
+    <div class="description" v-if="lang === 'EN'">
       <div class="title"><u class="deco">Whe</u>re We Are</div>
+      <div class="where">
+        <img src="../../assets/about/locations.png" class="locations" />
+      </div>
+    </div>
+    <div class="description" v-if="lang === 'CN'">
+      <div class="title"><u class="deco">公司</u>地址</div>
       <div class="where">
         <img src="../../assets/about/locations.png" class="locations" />
       </div>

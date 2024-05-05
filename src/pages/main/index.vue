@@ -1,5 +1,17 @@
 <script setup>
 import Button from "primevue/button";
+import { lang } from "../../helpers/language";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const scrollDown = () => {
+  window.scrollBy({ top: 500, left: 0, behavior: "smooth" });
+};
+
+const goHome = () => {
+  router.push({ path: "/" });
+};
 </script>
 
 <template>
@@ -10,19 +22,31 @@ import Button from "primevue/button";
         <p class="title">Profession,</p>
         <p class="title">Precision,</p>
         <p class="title">Innovation</p>
-        <Button>Explore PPI >>></Button>
+        <Button @click="scrollDown"
+          >{{ lang === "CN" ? "探索 PPI" : "Explore PPI" }} >>></Button
+        >
       </div>
     </div>
     <div class="description">
-      <div class="title">Our Technology, Your Best Solution!</div>
-      <div class="text">
-        PPI offers a full range of fasteners and non-standard hardware to meet
-        your needs
+      <div class="title">
+        {{
+          lang === "CN"
+            ? "我们的技术，您最好的解决方案"
+            : "Our Technology, Your Best Solution!"
+        }}
       </div>
-      <div class="detail">Learn Who We Are</div>
+      <div class="text">
+        {{
+          lang === "CN"
+            ? "PPI 工程公司提供全方位的紧固件和非标准硬件，以满足您的需求。"
+            : "PPI offers a full range of fasteners and non-standard hardware to meet your needs."
+        }}
+      </div>
+      <div class="detail" @click="router.push({ path: '/about' })">
+        {{ lang === "CN" ? "关于我们" : "Learn Who We Are" }}
+      </div>
     </div>
   </div>
-  <
 </template>
 
 <style scoped lang="scss">

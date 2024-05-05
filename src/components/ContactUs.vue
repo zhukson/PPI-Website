@@ -2,6 +2,7 @@
 import InputText from "primevue/inputtext";
 import Textarea from "primevue/textarea";
 import Button from "primevue/button";
+import { lang } from "../helpers/language";
 import { ref } from "vue";
 
 const name = ref();
@@ -11,7 +12,7 @@ const message = ref();
 
 <template>
   <div class="total">
-    <div class="left">
+    <div class="left" v-if="lang === 'EN'">
       <div class="one">Contact Us</div>
       <div class="two">
         Our Technology, Your Best Solutions. Leave us a message and get in
@@ -19,15 +20,22 @@ const message = ref();
       </div>
       <img src="../assets/logo2.png" class="three" />
     </div>
+
+    <div class="left" v-if="lang === 'CN'">
+      <div class="one">联系我们</div>
+      <div class="two">我们的技术是您最好的解决方案！请与我们保持联系。</div>
+      <img src="../assets/logo2.png" class="three" />
+    </div>
+
     <div class="right">
       <InputText v-model="name" placeholder="Steven Chen"></InputText>
       <InputText v-model="email" placeholder="you@email.com"></InputText>
       <Textarea
         v-model="message"
-        placeholder="Your Message"
+        :placeholder="lang === 'EN' ? 'Your Message' : '邮件信息'"
         class="area"
       ></Textarea>
-      <Button>Submit</Button>
+      <Button>{{ lang === "EN" ? "Submit" : "提交" }}</Button>
     </div>
   </div>
   <div class="line"></div>
@@ -47,6 +55,7 @@ const message = ref();
   height: auto; // 设置为auto以适应内容高度
   display: flex;
   flex-direction: row;
+  padding: 1rem;
   .left {
     display: flex;
     flex-direction: column;
