@@ -35,14 +35,14 @@ import Button from "primevue/button";
 .image-container {
   position: relative;
   width: 100%;
-  height: 50rem; /* 根据需要调整高度 */
-  animation: slideUp 0.5s ease-out forwards; /* 应用动画 */
+  height: 50rem;
+  animation: slideUp 0.5s ease-out forwards;
 }
 
 .bg {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 确保图像填充容器而不失真 */
+  object-fit: cover;
 }
 
 .centered-content {
@@ -106,13 +106,26 @@ button {
     font-weight: bold;
     border-style: solid;
     display: flex;
-    flex-direction: center;
     align-items: center;
     justify-content: center;
   }
 
   .detail:hover {
     cursor: pointer;
+  }
+}
+
+// 媒体查询
+@media (max-width: 768px) {
+  .image-container {
+    height: 30rem; // 调整较小屏幕的高度
+  }
+  .title {
+    font-size: 3rem; // 减小标题字号
+  }
+  button {
+    width: 50%; // 调整按钮宽度
+    font-size: 0.8rem; // 减小字号
   }
 }
 </style>

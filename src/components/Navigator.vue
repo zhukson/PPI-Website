@@ -46,4 +46,21 @@ const goHome = () => {
     }
   }
 }
+
+@media (max-width: 768px) {
+  .box {
+    flex-direction: column; // 在小屏幕上改为垂直布局
+    height: auto; // 高度自适应
+
+    .logo {
+      margin-bottom: 1rem; // 在logo和选项之间加入间距
+    }
+
+    .options {
+      flex-direction: column; // 小屏幕上选项垂直排列
+      margin-right: 0;
+      gap: 1rem;
+    }
+  }
+}
 </style>

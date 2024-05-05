@@ -44,7 +44,7 @@ const message = ref();
 <style scoped lang="scss">
 .total {
   background: black;
-  height: 20rem;
+  height: auto; // 设置为auto以适应内容高度
   display: flex;
   flex-direction: row;
   .left {
@@ -63,8 +63,9 @@ const message = ref();
       font-size: 1.5rem;
     }
     .three {
-      height: 7rem;
+      height: auto;
       width: 60%;
+      object-fit: contain; // 保证图片比例不失真
     }
   }
 
@@ -75,21 +76,22 @@ const message = ref();
     justify-content: center;
     width: 50%;
     gap: 1rem;
-    input {
-      width: 40rem;
+    input,
+    .area {
+      width: 100%; // 使用百分比代替固定像素
+      max-width: 40rem; // 最大宽度限制
       background-color: black;
     }
 
     .area {
-      width: 40rem;
       height: 5rem;
-      background-color: black;
     }
 
     button {
       background-color: white;
       color: black;
-      border: 0cap;
+      border: none;
+      padding: 0.5rem 1rem; // 增加按钮内边距
     }
   }
 }
@@ -116,6 +118,20 @@ const message = ref();
     .icon {
       height: 2rem;
       width: 2rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .total {
+    flex-direction: column; // 在小屏幕上改为垂直布局
+    .left,
+    .right {
+      width: 100%; // 小屏幕上宽度全屏
+    }
+    .right input,
+    .right .area {
+      max-width: none; // 移除最大宽度限制
     }
   }
 }
