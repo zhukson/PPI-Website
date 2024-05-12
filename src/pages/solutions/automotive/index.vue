@@ -5,6 +5,9 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 </script>
 
-<template>telecom</template>
+<template>
+  <div class="title"></div>
+  <div class="de"></div>
+</template>
 
 <style scoped lang="scss"></style>

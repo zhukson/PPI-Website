@@ -38,25 +38,50 @@ const toggleMenu = (status) => {
         {{ lang === "CN" ? "解决方案" : "Solutions" }}
         <div class="mega-menu" v-if="showMenu" @mouseleave="toggleMenu(false)">
           <div class="photo-row">
-            <div class="card">
+            <div
+              class="card"
+              @click="router.push({ path: '/solutions/electronics' })"
+            >
               <img src="../assets/navigator/electronic.png" class="image" />
-              <div>Consuming Electronics</div>
+              <div class="deco">
+                {{ lang === "EN" ? "Consuming Electronics" : "消费电子产品" }}
+              </div>
             </div>
-            <div class="card">
+            <div
+              class="card"
+              @click="router.push({ path: '/solutions/electronics' })"
+            >
               <img src="../assets/navigator/industry.png" class="image" />
-              <div>Industry</div>
+              <div class="deco">
+                {{ lang === "EN" ? "Industry" : "工业产品" }}
+              </div>
             </div>
-            <div class="card">
+            <div
+              class="card"
+              @click="router.push({ path: '/solutions/telecom' })"
+            >
               <img src="../assets/navigator/telecom.png" class="image" />
-              <div>Telecommunication</div>
+              <div class="deco">
+                {{ lang === "EN" ? "Telecommunication" : "通信" }}
+              </div>
             </div>
-            <div class="card">
+            <div
+              class="card"
+              @click="router.push({ path: '/solutions/automotive' })"
+            >
               <img src="../assets/navigator/automotive.png" class="image" />
-              <div>Automotive Component</div>
+              <div class="deco">
+                {{ lang === "EN" ? "Automotive Component" : "汽车零部件" }}
+              </div>
             </div>
-            <div class="card">
+            <div
+              class="card"
+              @click="router.push({ path: '/solutions/industry' })"
+            >
               <img src="../assets/navigator/industry.png" class="image" />
-              <div>Medical</div>
+              <div class="deco">
+                {{ lang === "EN" ? "Medical" : "医疗" }}
+              </div>
             </div>
           </div>
         </div>
@@ -100,12 +125,9 @@ const toggleMenu = (status) => {
   }
 }
 
-.item:hover {
-  cursor: pointer;
-  color: rgb(255, 230, 0);
-}
-
+.item:hover,
 .item-dropdown:hover {
+  cursor: pointer;
   color: rgb(255, 230, 0);
 }
 
@@ -120,9 +142,17 @@ const toggleMenu = (status) => {
   left: 0;
   right: 0;
   top: 5rem;
-  background-color: white; /* Change as per your design */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Optional */
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 100;
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Make the menu not interactable when hidden */
+  transition: opacity 0.6s ease, visibility 0.6s; /* Smooth transition for visibility and opacity */
+}
+
+.item-dropdown:hover .mega-menu {
+  opacity: 1;
+  visibility: visible; /* Make the menu visible and interactable on hover */
 }
 
 .photo-row {
@@ -141,7 +171,6 @@ const toggleMenu = (status) => {
     font-weight: 600;
     align-items: center;
     justify-content: center;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
 
   .image {
@@ -150,17 +179,44 @@ const toggleMenu = (status) => {
   }
 }
 
+.deco {
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.deco::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 10px;
+  background-color: yellow;
+  transition: width 0.5s ease;
+}
+
+.card:hover .deco::after {
+  width: 100%;
+}
+
+.item-dropdown:hover .mega-menu,
+.mega-menu:hover {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0s; /* No delay when showing */
+}
+
 @media (max-width: 768px) {
   .box {
-    flex-direction: column; // 在小屏幕上改为垂直布局
-    height: auto; // 高度自适应
-
+    flex-direction: column;
+    height: auto;
     .logo {
-      margin-bottom: 1rem; // 在logo和选项之间加入间距
+      margin-bottom: 1rem;
     }
-
     .options {
-      flex-direction: column; // 小屏幕上选项垂直排列
+      flex-direction: column;
       margin-right: 0;
       gap: 1rem;
     }
