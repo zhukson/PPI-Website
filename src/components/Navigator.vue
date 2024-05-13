@@ -89,7 +89,130 @@ const toggleMenu = (status) => {
       <div class="item">
         {{ lang === "CN" ? "质量" : "Quality Assurance" }}
       </div>
-      <div class="item">{{ lang === "CN" ? "产品" : "Products" }}</div>
+      <div class="item-dropdown" @mouseover="toggleMenu(true)">
+        {{ lang === "CN" ? "产品" : "Products" }}
+        <div class="mega-menu" v-if="showMenu" @mouseleave="toggleMenu(false)">
+          <div class="photo-row">
+            <div
+              class="card2"
+              @click="router.push({ path: '/solutions/electronics' })"
+            >
+              <img
+                src="../assets/navigator/products/screw.png"
+                class="image2"
+              />
+              <div class="deco">
+                {{
+                  lang === "EN"
+                    ? "Screw/Tapping screw/ Bolt (Class 8.8~12.9)"
+                    : "螺丝/自攻螺丝/螺栓（8.8~12.9级）"
+                }}
+              </div>
+            </div>
+            <div
+              class="card2"
+              @click="router.push({ path: '/solutions/electronics' })"
+            >
+              <img
+                src="../assets/navigator/products/NyIok.png"
+                class="image2"
+              />
+              <div class="deco">
+                {{
+                  lang === "EN"
+                    ? "Nylok/Nylon/Nyseal/3M/Procete80/Tuflok/PVD with 90°~360°"
+                    : "尼龙锁/尼龙/尼密封/3M/普西特80/塔夫洛克/PVD处理（90°~360°）"
+                }}
+              </div>
+            </div>
+            <div
+              class="card2"
+              @click="router.push({ path: '/solutions/electronics' })"
+            >
+              <img
+                src="../assets/navigator/products/turning screw.png"
+                class="image2"
+              />
+              <div class="deco">
+                {{
+                  lang === "EN"
+                    ? "Stud/Tooth Strip/Turning Screw(class 8.8~12.9)"
+                    : "螺柱/齿形条/旋转螺丝（8.8~12.9级）"
+                }}
+              </div>
+            </div>
+            <div
+              class="card2"
+              @click="router.push({ path: '/solutions/electronics' })"
+            >
+              <img
+                src="../assets/navigator/products/assembly.png"
+                class="image2"
+              />
+              <div class="deco">
+                {{
+                  lang === "EN"
+                    ? "Assembly Screw & Bolt (Size from M2~M16)"
+                    : "组装螺丝和螺栓（尺寸从M2到M16）"
+                }}
+              </div>
+            </div>
+          </div>
+          <div class="photo-row">
+            <div
+              class="card2"
+              @click="router.push({ path: '/solutions/electronics' })"
+            >
+              <img src="../assets/navigator/products/nuts.jpg" class="image2" />
+              <div class="deco">
+                {{
+                  lang === "EN" ? "Nuts(Class 8.0~12.0)" : "螺母（8.0~12.0级）"
+                }}
+              </div>
+            </div>
+            <div
+              class="card2"
+              @click="router.push({ path: '/solutions/electronics' })"
+            >
+              <img
+                src="../assets/navigator/products/insert.png"
+                class="image2"
+              />
+              <div class="deco">
+                {{ lang === "EN" ? "Insert" : "螺母" }}
+              </div>
+            </div>
+            <div
+              class="card2"
+              @click="router.push({ path: '/solutions/electronics' })"
+            >
+              <img
+                src="../assets/navigator/products/milling.jpg"
+                class="image2"
+              />
+              <div class="deco">
+                {{ lang === "EN" ? "Milling/Turning" : "车削件" }}
+              </div>
+            </div>
+            <div
+              class="card2"
+              @click="router.push({ path: '/solutions/electronics' })"
+            >
+              <img
+                src="../assets/navigator/products/washers.png"
+                class="image2"
+              />
+              <div class="deco">
+                {{
+                  lang === "EN"
+                    ? "Washers/clips/Stamping"
+                    : "垫片/卡簧/冲压产品"
+                }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="item">{{ lang === "CN" ? "联系我们" : "Contacts" }}</div>
     </div>
   </div>
@@ -138,7 +261,8 @@ const toggleMenu = (status) => {
 .mega-menu {
   position: absolute;
   width: 100%;
-  height: 35%;
+  height: auto;
+  min-height: 35%;
   left: 0;
   right: 0;
   top: 5rem;
@@ -156,10 +280,10 @@ const toggleMenu = (status) => {
 }
 
 .photo-row {
-  padding: 3rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: space-evenly;
   align-items: center;
   color: black;
@@ -173,9 +297,24 @@ const toggleMenu = (status) => {
     justify-content: center;
   }
 
+  .card2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+  }
+
   .image {
     height: 12rem;
     width: 18rem;
+  }
+
+  .image2 {
+    height: 8rem;
+    width: 12rem;
   }
 }
 
@@ -191,13 +330,17 @@ const toggleMenu = (status) => {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 3rem;
-  height: 10px;
+  width: 2rem;
+  height: 0.5rem;
   background-color: yellow;
   transition: width 0.5s ease;
 }
 
 .card:hover .deco::after {
+  width: 100%;
+}
+
+.card2:hover .deco::after {
   width: 100%;
 }
 
