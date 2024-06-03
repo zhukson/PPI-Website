@@ -178,7 +178,7 @@ import { lang } from "../../helpers/language";
 }
 
 .description {
-  width: 90vw;
+  width: 90%;
   height: auto;
   margin: 2rem;
 

@@ -49,7 +49,7 @@ const toggleMenu = (status) => {
             </div>
             <div
               class="card"
-              @click="router.push({ path: '/solutions/electronics' })"
+              @click="router.push({ path: '/solutions/industry' })"
             >
               <img src="../assets/navigator/industry.png" class="image" />
               <div class="deco">
@@ -76,7 +76,7 @@ const toggleMenu = (status) => {
             </div>
             <div
               class="card"
-              @click="router.push({ path: '/solutions/industry' })"
+              @click="router.push({ path: '/solutions/medical' })"
             >
               <img src="../assets/navigator/industry.png" class="image" />
               <div class="deco">
@@ -95,7 +95,7 @@ const toggleMenu = (status) => {
           <div class="photo-row">
             <div
               class="card2"
-              @click="router.push({ path: '/solutions/electronics' })"
+              @click="router.push({ path: '/products/screw' })"
             >
               <img
                 src="../assets/navigator/products/screw.png"
@@ -111,7 +111,7 @@ const toggleMenu = (status) => {
             </div>
             <div
               class="card2"
-              @click="router.push({ path: '/solutions/electronics' })"
+              @click="router.push({ path: '/products/Nylok' })"
             >
               <img
                 src="../assets/navigator/products/NyIok.png"
@@ -127,7 +127,7 @@ const toggleMenu = (status) => {
             </div>
             <div
               class="card2"
-              @click="router.push({ path: '/solutions/electronics' })"
+              @click="router.push({ path: '/products/turningScrew' })"
             >
               <img
                 src="../assets/navigator/products/turning screw.png"
@@ -143,7 +143,7 @@ const toggleMenu = (status) => {
             </div>
             <div
               class="card2"
-              @click="router.push({ path: '/solutions/electronics' })"
+              @click="router.push({ path: '/products/assembly' })"
             >
               <img
                 src="../assets/navigator/products/assembly.png"
@@ -159,10 +159,7 @@ const toggleMenu = (status) => {
             </div>
           </div>
           <div class="photo-row">
-            <div
-              class="card2"
-              @click="router.push({ path: '/solutions/electronics' })"
-            >
+            <div class="card2" @click="router.push({ path: '/products/nuts' })">
               <img src="../assets/navigator/products/nuts.jpg" class="image2" />
               <div class="deco">
                 {{
@@ -172,7 +169,7 @@ const toggleMenu = (status) => {
             </div>
             <div
               class="card2"
-              @click="router.push({ path: '/solutions/electronics' })"
+              @click="router.push({ path: '/products/insert' })"
             >
               <img
                 src="../assets/navigator/products/insert.png"
@@ -184,7 +181,7 @@ const toggleMenu = (status) => {
             </div>
             <div
               class="card2"
-              @click="router.push({ path: '/solutions/electronics' })"
+              @click="router.push({ path: '/products/milling' })"
             >
               <img
                 src="../assets/navigator/products/milling.jpg"
@@ -196,7 +193,7 @@ const toggleMenu = (status) => {
             </div>
             <div
               class="card2"
-              @click="router.push({ path: '/solutions/electronics' })"
+              @click="router.push({ path: '/products/washers' })"
             >
               <img
                 src="../assets/navigator/products/washers.png"
@@ -221,7 +218,7 @@ const toggleMenu = (status) => {
 <style scoped lang="scss">
 .box {
   height: 5rem;
-  width: 100vw;
+  width: 100%;
   background-color: white;
   display: flex;
   flex-direction: row;
@@ -291,7 +288,7 @@ const toggleMenu = (status) => {
   .card {
     display: flex;
     flex-direction: column;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 600;
     align-items: center;
     justify-content: center;
@@ -304,7 +301,6 @@ const toggleMenu = (status) => {
     font-weight: 600;
     align-items: center;
     justify-content: center;
-    width: 25%;
   }
 
   .image {

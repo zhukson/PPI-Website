@@ -104,7 +104,7 @@ button {
 }
 
 .description {
-  width: 90vw;
+  width: 90%;
   height: 30rem;
   background-color: yellow;
   margin: 3rem;
