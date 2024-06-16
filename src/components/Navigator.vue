@@ -128,7 +128,7 @@ const scrollToBottom = () => {
                 {{
                   lang === "EN"
                     ? "Nylok/Nylon/Nyseal/3M/Procete80/Tuflok/PVD with 90°~360°"
-                    : "尼龙锁/尼龙/尼密封/3M/普西特80/塔夫洛克/PVD处理（90°~360°）"
+                    : "90°~360° 耐落/尼龙/Nyseal防水/3M/ Procete80/Tuflok/PVD "
                 }}
               </div>
             </div>
