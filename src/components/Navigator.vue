@@ -93,7 +93,7 @@ const scrollToBottom = () => {
           </div>
         </div>
       </div>
-      <div class="item">
+      <div class="item" v-if="false">
         {{ lang === "CN" ? "质量" : "Quality Assurance" }}
       </div>
       <div class="item-dropdown" @mouseover="toggleMenu(true)">
