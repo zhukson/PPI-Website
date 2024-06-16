@@ -78,6 +78,10 @@ const routes = [
   {
     path: '/products/screw',
     component: Screw
+  },
+  {
+    path: '/products/washers',
+    component: Washer
   }]
 },
 ]

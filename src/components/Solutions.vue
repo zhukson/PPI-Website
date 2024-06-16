@@ -53,7 +53,7 @@ const resolvedBackgroundImage = computed(() =>
 
 <template>
   <div class="total">
-    <div class="image-container">
+    <div class="image-container slide-up">
       <Image
         :src="resolvedBackgroundImage"
         alt="background"
@@ -71,7 +71,7 @@ const resolvedBackgroundImage = computed(() =>
         </div>
       </div>
     </div>
-    <div class="description" v-if="lang === 'EN'">
+    <div class="description slide-up" v-if="lang === 'EN'">
       <div class="title">
         <u class="deco">{{ props.solutionTitleEN }}</u>
       </div>
@@ -81,7 +81,7 @@ const resolvedBackgroundImage = computed(() =>
         </slot>
       </div>
     </div>
-    <div class="description" v-else-if="lang === 'CN'">
+    <div class="description slide-up" v-else-if="lang === 'CN'">
       <div class="title">
         <u class="deco">{{ props.solutionTitleCN }}</u>
       </div>
@@ -91,7 +91,7 @@ const resolvedBackgroundImage = computed(() =>
         </slot>
       </div>
     </div>
-    <div class="description" v-if="lang === 'EN'">
+    <div class="description slide-up" v-if="lang === 'EN'">
       <div class="title">
         <u class="deco">{{ props.keyProductsTitleEN }}</u>
       </div>
@@ -101,7 +101,7 @@ const resolvedBackgroundImage = computed(() =>
         </slot>
       </div>
     </div>
-    <div class="description" v-else-if="lang === 'CN'">
+    <div class="description slide-up" v-else-if="lang === 'CN'">
       <div class="title">
         <u class="deco">{{ props.keyProductsTitleCN }}</u>
       </div>
@@ -116,11 +116,25 @@ const resolvedBackgroundImage = computed(() =>
 </template>
 
 <style scoped lang="scss">
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 1s ease-out forwards;
+}
+
 .image-container {
   position: relative;
   width: 100%;
-  height: 25rem;
-  animation: slideUp 0.5s ease-out forwards;
+  height: 30rem;
   .p-image {
     width: 30%;
   }

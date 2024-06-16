@@ -13,6 +13,13 @@ const showMenu = ref(false);
 const toggleMenu = (status) => {
   showMenu.value = status;
 };
+
+const scrollToBottom = () => {
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth",
+  });
+};
 </script>
 
 <template>
@@ -176,7 +183,7 @@ const toggleMenu = (status) => {
                 class="image2"
               />
               <div class="deco">
-                {{ lang === "EN" ? "Insert" : "螺母" }}
+                {{ lang === "EN" ? "Insert" : "车削镶嵌类螺母" }}
               </div>
             </div>
             <div
@@ -210,7 +217,9 @@ const toggleMenu = (status) => {
           </div>
         </div>
       </div>
-      <div class="item">{{ lang === "CN" ? "联系我们" : "Contacts" }}</div>
+      <div class="item" @click="scrollToBottom">
+        {{ lang === "CN" ? "联系我们" : "Contacts" }}
+      </div>
     </div>
   </div>
 </template>

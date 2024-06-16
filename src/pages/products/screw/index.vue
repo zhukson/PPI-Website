@@ -1,7 +1,8 @@
 <script setup>
-import Button from "primevue/button";
 import { useRouter } from "vue-router";
 import { lang } from "../../../helpers/language";
+import Product from "../../../components/Product.vue";
+import { screwList } from "../../../helpers/productsConfig";
 
 const router = useRouter();
 </script>
@@ -9,13 +10,20 @@ const router = useRouter();
 <template>
   <div class="total">
     <div class="seg"></div>
-    <div class="description" v-if="lang === 'EN'">
+    <div class="description">
       <div class="title">
-        <u class="deco">Screw</u> /Tapping screw/ Bolt (Class 8.8~12.9)
+        {{ lang === "CN" ? screwList.titleCN : screwList.titleEN }}
       </div>
-      <div class="detail">
-        <img src="../../../assets/products/screw1_EN.png" class="img" />
-        <img src="../../../assets/products/screw2_EN.png" class="img" />
+      <div class="productBoard">
+        <Product
+          v-for="imageInfo of screwList.list"
+          :imgPath="imageInfo.img"
+          :module="screwList.module"
+          :titleEN="imageInfo.nameEN"
+          :titleCN="imageInfo.nameCN"
+          :key="imageInfo.id"
+        >
+        </Product>
       </div>
     </div>
   </div>
@@ -25,6 +33,8 @@ const router = useRouter();
 .total {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
 
   .seg {
@@ -63,5 +73,15 @@ const router = useRouter();
     text-decoration-color: yellow;
     text-decoration-thickness: 1rem;
   }
+}
+
+.productBoard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.productBoard > * {
+  box-sizing: border-box;
 }
 </style>

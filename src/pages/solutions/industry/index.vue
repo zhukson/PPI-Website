@@ -2,7 +2,11 @@
 import Button from "primevue/button";
 import { lang } from "../../../helpers/language";
 import Solutions from "../../../components/Solutions.vue";
+import { useRoute, useRouter } from "vue-router";
 import Card from "primevue/card";
+
+const router = useRouter();
+const route = useRoute();
 </script>
 
 <template>
@@ -24,8 +28,8 @@ import Card from "primevue/card";
         <img src="../../../assets/solutions/industryEN.png" class="image" />
       </div>
     </template>
-    <template #solutionContentEN>
-      PPI Engineering Group excels in delivering high-quality fastening
+    <template #solutionContentEN
+      >`` PPI Engineering Group excels in delivering high-quality fastening
       solutions for the industrial sector. Our comprehensive product lineup
       includes machining screws, tapping screws, SEM screws, inserts, and nuts,
       all designed to meet the rigorous demands of industrial applications. Our
@@ -51,14 +55,15 @@ import Card from "primevue/card";
             />
           </template>
           <template #title>螺母</template>
-          <template #content>
-            <p class="m-0">
-              与螺栓配合使用，提供牢固的紧固，应用于各种连接部位。
-            </p>
-          </template>
+
           <template #footer>
             <div class="flex gap-3 mt-1">
-              <Button label="Detail" outlined class="w-full" />
+              <Button
+                :label="lang === 'CN' ? '查看详情' : 'Detail'"
+                outlined
+                class="w-full"
+                @click="router.push({ path: '/products/nuts' })"
+              />
             </div>
           </template>
         </Card>
@@ -72,12 +77,15 @@ import Card from "primevue/card";
             />
           </template>
           <template #title>自攻螺钉</template>
-          <template #content>
-            <p class="m-0">能够自行切割螺纹，广泛用于塑料和薄金属件的固定。</p>
-          </template>
+
           <template #footer>
             <div class="flex gap-3 mt-1">
-              <Button label="Detail" outlined class="w-full" />
+              <Button
+                :label="lang === 'CN' ? '查看详情' : 'Detail'"
+                outlined
+                class="w-full"
+                @click="router.push({ path: '/products/screw' })"
+              />
             </div>
           </template>
         </Card>
@@ -91,14 +99,15 @@ import Card from "primevue/card";
             />
           </template>
           <template #title>嵌件</template>
-          <template #content>
-            <p class="m-0">
-              常用于软材料（如塑料或木材）中，以提供牢固的螺纹连接。嵌件可以通过压入、嵌入或热熔等方式安装。
-            </p>
-          </template>
+
           <template #footer>
             <div class="flex gap-3 mt-1">
-              <Button label="Detail" outlined class="w-full" />
+              <Button
+                :label="lang === 'CN' ? '查看详情' : 'Detail'"
+                outlined
+                class="w-full"
+                @click="router.push({ path: '/products/insert' })"
+              />
             </div>
           </template>
         </Card>
@@ -115,15 +124,15 @@ import Card from "primevue/card";
             />
           </template>
           <template #title>Nut</template>
-          <template #content>
-            <p class="m-0">
-              Used in conjunction with bolts to provide secure fastening,
-              applied in various connection points.
-            </p>
-          </template>
+
           <template #footer>
             <div class="flex gap-3 mt-1">
-              <Button label="Detail" outlined class="w-full" />
+              <Button
+                :label="lang === 'CN' ? '查看详情' : 'Detail'"
+                outlined
+                class="w-full"
+                @click="router.push({ path: '/products/nuts' })"
+              />
             </div>
           </template>
         </Card>
@@ -137,15 +146,15 @@ import Card from "primevue/card";
             />
           </template>
           <template #title>Tapping Screw</template>
-          <template #content>
-            <p class="m-0">
-              Can cut its own threads, widely used for securing plastic and thin
-              metal parts.
-            </p>
-          </template>
+
           <template #footer>
             <div class="flex gap-3 mt-1">
-              <Button label="Detail" outlined class="w-full" />
+              <Button
+                :label="lang === 'CN' ? '查看详情' : 'Detail'"
+                outlined
+                class="w-full"
+                @click="router.push({ path: '/products/screw' })"
+              />
             </div>
           </template>
         </Card>
@@ -159,17 +168,15 @@ import Card from "primevue/card";
             />
           </template>
           <template #title>Insert</template>
-          <template #content>
-            <p class="m-0">
-              Threaded inserts are commonly used in soft materials such as
-              plastic, wood, or aluminum. They are designed to provide a strong
-              threaded anchor for screws and bolts, improving the material’s
-              load-bearing capacity and wear resistance.
-            </p>
-          </template>
+
           <template #footer>
             <div class="flex gap-3 mt-1">
-              <Button label="Detail" outlined class="w-full" />
+              <Button
+                :label="lang === 'CN' ? '查看详情' : 'Detail'"
+                outlined
+                class="w-full"
+                @click="router.push({ path: '/products/insert' })"
+              />
             </div>
           </template>
         </Card>
@@ -178,7 +185,7 @@ import Card from "primevue/card";
   </Solutions>
 </template>
 
-<style>
+<style scoped>
 .image {
   width: 100%;
 }
@@ -198,5 +205,10 @@ import Card from "primevue/card";
 .card-image {
   width: 100%;
   height: 20rem;
+}
+
+.p-button {
+  border-color: black;
+  color: black;
 }
 </style>
